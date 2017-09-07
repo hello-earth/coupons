@@ -1,0 +1,400 @@
+.container,.page{position:absolute;top:0;right:0;bottom:0;left:0}
+.global_navs .cell:before,.global_navs:after,.global_navs:before{border-color:#D9DBDA}
+body,html{height:auto;-webkit-tap-highlight-color:transparent}.page,body{background-color:#F2F2F2}.container{overflow:hidden}.page{overflow-y:auto;-webkit-overflow-scrolling:touch}.hd{padding:2em 0 0.5em 0}.page_desc{text-align:center;color:#888;font-size:14px}.bd.spacing{padding:0 15px}.page_title{text-align:center;font-size:34px;color:#3CC51F;font-weight:400;margin:0 15%}.page.button .page_title,.page.cell .page_title{color:#225FBA}.global_navs{background-color:transparent}.page.article,.page.dialog,.page.icons,.page.msg,.page.toast{background-color:#FFF}.global_navs .cell{padding-top:.5em;padding-bottom:.5em}.global_navs .icon_nav{width:28px;height:28px;display:block;margin-right:.2em}.page.button .bd{padding:0 15px}.page .button_sp_area{padding:10px 0;width:60%;margin:0 auto;text-align:justify;text-justify:distribute-all-lines;font-size:0}.page.button .button_sp_area:after{display:inline-block;width:100%;height:0;font-size:0;margin:0;padding:0;overflow:hidden;content:"."}.page.cell .bd{padding-bottom:30px}.page.dialog .bd,.page.toast .bd{padding:120px 15px 0}.page.article .page_title{color:#DE7C23}.page.icons{text-align:center}.page.icons .page_title{color:#3E24BD}.page.icons .bd{padding:30px 0;text-align:center}.page.icons .icon_sp_area{padding:10px 20px;text-align:left}.page.icons i{margin:0 5px 10px}@-webkit-keyframes slideIn{from{-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}to{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}}@keyframes slideIn{from{-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}to{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}}@-webkit-keyframes slideOut{from{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}to{-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}}@keyframes slideOut{from{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}to{-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}}.page.slideIn{-webkit-animation:slideIn .2s forwards;animation:slideIn .2s forwards}.page.slideOut{-webkit-animation:slideOut .2s forwards;animation:slideOut .2s forwards}
+/*表单*/
+.input{font-size:14px;padding:6px;border:solid 1px #ddd;width:100%;height:34px;line-height:20px;display:block;border-radius:4px;-webkit-appearance:none;box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset;transition:all 1s cubic-bezier(0.175, 0.885, 0.32, 1) 0s;}
+.label{padding-bottom:7px;display:block;line-height:20px;}
+.label label{font-weight:bold;}
+.input-file{display:inline-block;position:relative;overflow:hidden;text-align:center;width:auto;color:#333;}
+.input-file input[type="file"]{position:absolute;top:0;right:0;font-size:14px;background-color:#fff;transform:translate(-300px, 0px) scale(4);height:40px;opacity:0;filter:alpha(opacity=0);}
+.input:focus{border-color:#09c;transition:all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1) 0s;}
+.input-auto{width:auto;display:inline-block;}
+input[disabled],input[readonly],textarea[disabled],textarea[readonly],select[disabled],select[readonly]{cursor:not-allowed;background:#eee;}/*IE6无效*/
+textarea.input{height:auto;}
+.input-note, .label .float-right{color:#999;font-size:12px;padding-top:2px;line-height:18px;}
+.field{position:relative;}
+.form-group{padding-bottom:10px;}
+.field-icon .input{text-indent:25px;}
+.field-icon .icon{position:absolute;left:0;right:auto;width:34px;height:34px;text-align:center;line-height:34px;font-size:16px;font-weight:normal;}
+.field-icon-right .icon{position:absolute;right:0;top:0;width:34px;height:34px;text-align:center;line-height:34px;font-size:16px;font-weight:normal;}
+/*横向排列form-x*/
+.form-x .form-group:after, .form-inline:after{clear:both;content:" ";display:block;height:0;overflow:hidden;visibility:hidden;}
+@media (min-width:760px){
+.form-x .form-group .label{float:left;width:15%;text-align:right;padding:7px 7px 7px 0;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
+.form-x .form-group .field{float:left;width:85%;}
+.form-x .form-button{margin-left:15%;}
+}
+@media (min-width:760px){
+.form-inline{display:inline-block;}
+.form-inline .input{width:auto;display:inline-block;}
+.form-inline .form-group{display:inline-table;padding-bottom:0;vertical-align:middle;}
+.form-inline .form-group .input-group{display:inline-table;width:auto;vertical-align:middle;}
+.form-inline .form-group .input-group .input{width:auto;}
+.form-inline .form-group .label{display:inline-block;}
+.form-inline .form-group .field{display:inline-block;}
+.form-inline .form-button{display:inline-block;vertical-align:middle;}
+.form-inline .form-button .button{width:auto;}
+.form-auto .input{width:auto;display:inline-block;}
+.form-auto .input-group{display:inline-table;width:auto;display:inline-block;}
+.form-auto .input-group .input{width:auto;display:inline-block;}
+.input-inline{padding-left:1px;}
+.input-inline input{position:relative;float:left;border-radius:0;margin-left:-1px;width:auto;}
+.form-small .input-inline input,.form-big .input-inline input{border-radius:0;}
+.input-inline input:first-child{left:1px;border-radius:4px 0 0 4px;}
+.input-inline input:last-child{border-radius:0 4px 4px 0;}
+}
+.input-block{padding-top:8px;}
+.input-block:first-child{padding-top:1px;}
+.input-block input{position:relative;margin-top:-1px;border-radius:0;}
+.form-small .input-block input,.form-big .input-block input{border-radius:0;}
+.input-block input:first-child{border-radius:4px 4px 0 0;}
+.input-block input:last-child{border-radius:0 0 4px 4px;}
+.label-block label{display:block;line-height:24px;}
+/*输入框组*/
+.input-group{border-collapse:separate;display:table;position:relative;}
+.input-group .addon, .input-group .addbtn, .input-group .input{display:table-cell;}
+.input-group .addon, .input-group .addbtn{width:1%;white-space:nowrap;vertical-align:middle;}
+.input-group .addbtn .button{font-weight:normal;}
+.input-group .input{width:100%;}
+.input-group .addon{background-color:#f5f5f5;border:1px solid #ddd;border-radius:4px;line-height:1;padding:6px 12px;text-align:center;}
+.input-group .addon:first-child, .input-group .addbtn:first-child .button{border-right:0 none;}
+.input-group .addon:first-child, .input-group .addbtn:first-child .button, .input-group .input:first-child{border-top-right-radius:0;border-bottom-right-radius:0;}
+.input-group .addon:last-child, .input-group .addbtn:last-child .button{border-left:0 none;}
+.input-group .addon:last-child, .input-group .addbtn:last-child .button, .input-group .input:last-child{border-top-left-radius:0;border-bottom-left-radius:0;}
+.input-group .addon:not(:first-child):not(:last-child),
+.input-group .addbtn:not(:first-child):not(:last-child) .button,
+.input-group .input:not(:first-child):not(:last-child){border-radius:0;}
+/*验证提示*/
+.form-tips .form-group .field{position:relative;zoom:1;}
+.form-tips .input-help{position:absolute;z-index:1;float:left;left:0;top:100%;}
+.form-tips .input-help ul{border:solid 1px #ddd;background:#fff;padding:10px 10px 10px 25px;box-shadow:0 0 5px #ddd;border-radius:4px;width:160px;min-width:160px;width:auto;_width:160px;}
+/*尺寸*/
+.input-big, .form-big .input, .form-big .button{padding:10px;font-size:16px;line-height:24px;height:46px;}
+.input-small, .form-small .input, .form-small .button{padding:5px;font-size:12px;line-height:18px;height:28px;}
+.form-small .addon,.form-small .addbtn{padding:5px 8px;font-size:12px;}
+
+/*
+ * WeUI v0.3.0 (https://github.com/weui/weui)
+ * Copyright 2016 Tencent, Inc.
+ * Licensed under the MIT license
+ *
+ *  AmMRLi 自定义样式
+ *  2016-2-29 04:02:25
+ *  配合WeUI 0.4.0 weui.css 版本
+ */
+
+/* AmMRLi add 自定义顶部 Banner 2016-2-29 04:24:11 */
+.banner{ width:100%;  position:relative;  height:88px; background:#02993c; text-align:center}
+
+/* AmMRLi add 自定义顶部 Banner 之 head & iocn 2016-2-29 04:24:11 */
+.myhead {
+  font-size: 0;
+  text-align: center;
+  background: #b6b6b6 url(http://cdn.shici.ammrli.com/vip/img/myhead/myhead_02.jpg);
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+.myhead h1:before {
+  content: " ";
+  width: 195px;
+  height: 160px;
+  vertical-align: middle;
+  display: inline-block;
+  background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat 0px 0px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
+}
+.myicon {
+  position: relative;
+  left: -2px;
+  width: 29px;
+  height: 29px;
+  vertical-align: middle;
+  display: inline-block;
+}
+.myicon.key {
+  background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat 0px -161px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
+}
+.myicon.lock {
+  background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat -30px -161px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
+}
+.myicon.msg {
+  background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat -60px -161px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
+}
+.myicon.snow {
+  background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat -90px -161px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
+}
+.myicon.user {
+  background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat -120px -161px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
+}
+.myicon.wechat {
+  background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat -150px -161px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
+}
+
+/*!
+ * WeUI v0.4.0 (https://github.com/weui/weui)
+ * Copyright 2016 Tencent, Inc.
+ * Licensed under the MIT license
+ *
+ *  AmMRLi 自定义样式
+ *  2016-2-29 04:02:25
+ *  配合WeUI 0.4.0 版本
+ */
+
+/*  AmMRLi add 自定义 图文列表 （新投、旧投、打赏、付费） 2016-2-29 04:24:11 */
+.cover {
+  display: block;
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  border-radius:50%;
+}
+.title {
+  font-weight: 400;
+  /* margin-right: 15px; */ /* 控制图文列表，但影响韵部 Showdata 显示，所以注释掉 */
+  font-size: 14px;
+}
+.summary {
+  font-size: 14px;
+  margin-right: 15px;
+  color: #888888;
+  display: -webkit-box;
+  max-width: 100%;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*  AmMRLi add 自定义 调整 cells 文字大小 原始17px 调整14px 2016-2-29 04:24:11 */
+.weui_cells_title {
+    margin-top: .77em;
+    margin-bottom: .3em;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #888;
+    font-size: 14px;
+}
+.weui_cells {
+    margin-top: 1.17647059em;
+    background-color: #FFFFFF;
+    line-height: 1.41176471;
+    font-size: 14px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 原始代码 参考icon字符样式
+.weui_icon_circle:before {
+  content: "\EA01";
+}
+.weui_icon_download:before {
+  content: "\EA02";
+}
+.weui_icon_info:before {
+  content: "\EA03";
+}
+.weui_icon_safe_success:before {
+  content: "\EA04";
+}
+.weui_icon_safe_warn:before {
+  content: "\EA05";
+}
+.weui_icon_success:before {
+  content: "\EA06";
+}
+.weui_icon_success_circle:before {
+  content: "\EA07";
+}
+.weui_icon_success_no_circle:before {
+  content: "\EA08";
+}
+.weui_icon_waiting:before {
+  content: "\EA09";
+}
+.weui_icon_waiting_circle:before {
+  content: "\EA0A";
+}
+.weui_icon_warn:before {
+  content: "\EA0B";
+}
+.weui_icon_info_circle:before {
+  content: "\EA0C";
+}
+.weui_icon_cancel:before {
+  content: "\EA0D";
+}
+.weui_icon_search:before {
+  content: "\EA0E";
+}
+.weui_icon_clear:before {
+  content: "\EA0F";
+}
+*/
+
+/*  AmMRLi add 自定义 调整 icon 大小 原始23px 调整18px 2016-2-29 04:24:11 */
+/* '' */
+[class^="weui_icon_"]:before,
+[class*=" weui_icon_"]:before {
+  margin: 0;
+}
+.weui_icon_success:before {
+  font-size: 18px;
+  color: #09BB07;
+}
+.weui_icon_waiting:before {
+  font-size: 18px;
+  color: #10AEFF;
+}
+.weui_icon_warn:before {
+  font-size: 18px;
+  color: #F43530;
+}
+.weui_icon_info:before {
+  font-size: 18px;
+  color: #10AEFF;
+}
+.weui_icon_success_circle:before {
+  font-size: 18px;
+  color: #09BB07;
+}
+.weui_icon_success_no_circle:before {
+  font-size: 18px;
+  color: #09BB07;
+}
+.weui_icon_waiting_circle:before {
+  font-size: 18px;
+  color: #10AEFF;
+}
+.weui_icon_circle:before {
+  font-size: 18px;
+  color: #C9C9C9;
+}
+.weui_icon_download:before {
+  font-size: 18px;
+  color: #09BB07;
+}
+.weui_icon_info_circle:before {
+  font-size: 18px;
+  color: #09BB07;
+}
+.weui_icon_safe_success:before {
+  color: #09BB07;
+}
+.weui_icon_safe_warn:before {
+  color: #FFBE00;
+}
+.weui_icon_cancel:before {
+  color: #F43530;
+  font-size: 22px;
+}
+.weui_icon_search:before {
+  color: #B2B2B2;
+  font-size: 14px;
+}
+.weui_icon_clear:before {
+  color: #B2B2B2;
+  font-size: 14px;
+}
+.weui_icon_msg:before {
+  font-size: 104px;
+}
+.weui_icon_warn.weui_icon_msg:before {
+  color: #F76260;
+}
+.weui_icon_safe:before {
+  font-size: 104px;
+}
+
+/*  AmMRLi add 自定义 icon 会员黄色图标 实心黄色钩 2016-2-29 04:24:11 */
+.weui_icon_vip:before {
+  content: "\EA06";
+  font-size: 18px;
+  color: #FFBE00;
+}
+/*  AmMRLi add 自定义 icon 历史记录绿色图标 空心绿色时间 2016-2-29 04:24:11 */
+.weui_icon_history:before {
+  content: "\EA0A";
+  font-size: 18px;
+  color: #09BB07;
+}
+/*  AmMRLi add 自定义 icon 提醒灰色图标 2016-2-29 04:24:11 */
+.weui_icon_notice:before {
+  content: "\EA07";
+  font-size: 18px;
+  color: #10AEFF;
+}
+/* AmMRLi add 自定义 首页九宫格角标 2017-4-16 19:47:23 */
+.vip_badge_gray {
+    display: inline-block;
+    padding: .1em .4em;
+    min-width: 8px;
+    border-radius: 18px;
+    background-color: #C9C9C9;
+    color: #FFFFFF;
+    line-height: 1.2;
+    text-align: center;
+    font-size: 10px;
+    vertical-align: middle;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.vip_badge_green {
+    display: inline-block;
+    padding: .1em .4em;
+    min-width: 8px;
+    border-radius: 18px;
+    background-color: #09BB07;
+    color: #FFFFFF;
+    line-height: 1.2;
+    text-align: center;
+    font-size: 10px;
+    vertical-align: middle;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.vip_badge_red {
+    display: inline-block;
+    padding: .1em .4em;
+    min-width: 8px;
+    border-radius: 18px;
+    background-color: #F76260;
+    color: #FFFFFF;
+    line-height: 1.2;
+    text-align: center;
+    font-size: 10px;
+    vertical-align: middle;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.vip_badge_blue {
+    display: inline-block;
+    padding: .1em .4em;
+    min-width: 8px;
+    border-radius: 18px;
+    background-color: #10AEFF;
+    color: #FFFFFF;
+    line-height: 1.2;
+    text-align: center;
+    font-size: 10px;
+    vertical-align: middle;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.vip_badge_yellow {
+    display: inline-block;
+    padding: .1em .4em;
+    min-width: 8px;
+    border-radius: 18px;
+    background-color: #FFBE00;
+    color: #FFFFFF;
+    line-height: 1.2;
+    text-align: center;
+    font-size: 10px;
+    vertical-align: middle;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
