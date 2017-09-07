@@ -1,6 +1,7 @@
 .container,.page{position:absolute;top:0;right:0;bottom:0;left:0}
 .global_navs .cell:before,.global_navs:after,.global_navs:before{border-color:#D9DBDA}
-body,html{height:auto;-webkit-tap-highlight-color:transparent}.page,body{background-color:#F2F2F2}.container{overflow:hidden}.page{overflow-y:auto;-webkit-overflow-scrolling:touch}.hd{padding:2em 0 0.5em 0}.page_desc{text-align:center;color:#888;font-size:14px}.bd.spacing{padding:0 15px}.page_title{text-align:center;font-size:34px;color:#3CC51F;font-weight:400;margin:0 15%}.page.button .page_title,.page.cell .page_title{color:#225FBA}.global_navs{background-color:transparent}.page.article,.page.dialog,.page.icons,.page.msg,.page.toast{background-color:#FFF}.global_navs .cell{padding-top:.5em;padding-bottom:.5em}.global_navs .icon_nav{width:28px;height:28px;display:block;margin-right:.2em}.page.button .bd{padding:0 15px}.page .button_sp_area{padding:10px 0;width:60%;margin:0 auto;text-align:justify;text-justify:distribute-all-lines;font-size:0}.page.button .button_sp_area:after{display:inline-block;width:100%;height:0;font-size:0;margin:0;padding:0;overflow:hidden;content:"."}.page.cell .bd{padding-bottom:30px}.page.dialog .bd,.page.toast .bd{padding:120px 15px 0}.page.article .page_title{color:#DE7C23}.page.icons{text-align:center}.page.icons .page_title{color:#3E24BD}.page.icons .bd{padding:30px 0;text-align:center}.page.icons .icon_sp_area{padding:10px 20px;text-align:left}.page.icons i{margin:0 5px 10px}@-webkit-keyframes slideIn{from{-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}to{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}}@keyframes slideIn{from{-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}to{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}}@-webkit-keyframes slideOut{from{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}to{-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}}@keyframes slideOut{from{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}to{-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}}.page.slideIn{-webkit-animation:slideIn .2s forwards;animation:slideIn .2s forwards}.page.slideOut{-webkit-animation:slideOut .2s forwards;animation:slideOut .2s forwards}
+body,html{height:auto;-webkit-tap-highlight-color:transparent}.page,body{background-color:#F2F2F2}.container{overflow:hidden}.page{overflow-y:auto;-webkit-overflow-scrolling:touch}.hd{padding:2em 0 0.5em 0}
+.page_desc{text-align:center;color:#888;font-size:14px}.bd.spacing{padding:0 15px}.page_title{text-align:center;font-size:34px;color:#3CC51F;font-weight:400;margin:0 15%}.page.button .page_title,.page.cell .page_title{color:#225FBA}.global_navs{background-color:transparent}.page.article,.page.dialog,.page.icons,.page.msg,.page.toast{background-color:#FFF}.global_navs .cell{padding-top:.5em;padding-bottom:.5em}.global_navs .icon_nav{width:28px;height:28px;display:block;margin-right:.2em}.page.button .bd{padding:0 15px}.page .button_sp_area{padding:10px 0;width:60%;margin:0 auto;text-align:justify;text-justify:distribute-all-lines;font-size:0}.page.button .button_sp_area:after{display:inline-block;width:100%;height:0;font-size:0;margin:0;padding:0;overflow:hidden;content:"."}.page.cell .bd{padding-bottom:30px}.page.dialog .bd,.page.toast .bd{padding:120px 15px 0}.page.article .page_title{color:#DE7C23}.page.icons{text-align:center}.page.icons .page_title{color:#3E24BD}.page.icons .bd{padding:30px 0;text-align:center}.page.icons .icon_sp_area{padding:10px 20px;text-align:left}.page.icons i{margin:0 5px 10px}@-webkit-keyframes slideIn{from{-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}to{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}}@keyframes slideIn{from{-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}to{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}}@-webkit-keyframes slideOut{from{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}to{-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}}@keyframes slideOut{from{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}to{-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}}.page.slideIn{-webkit-animation:slideIn .2s forwards;animation:slideIn .2s forwards}.page.slideOut{-webkit-animation:slideOut .2s forwards;animation:slideOut .2s forwards}
 /*表单*/
 .input{font-size:14px;padding:6px;border:solid 1px #ddd;width:100%;height:34px;line-height:20px;display:block;border-radius:4px;-webkit-appearance:none;box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset;transition:all 1s cubic-bezier(0.175, 0.885, 0.32, 1) 0s;}
 .label{padding-bottom:7px;display:block;line-height:20px;}
@@ -20,28 +21,28 @@ textarea.input{height:auto;}
 /*横向排列form-x*/
 .form-x .form-group:after, .form-inline:after{clear:both;content:" ";display:block;height:0;overflow:hidden;visibility:hidden;}
 @media (min-width:760px){
-.form-x .form-group .label{float:left;width:15%;text-align:right;padding:7px 7px 7px 0;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
-.form-x .form-group .field{float:left;width:85%;}
-.form-x .form-button{margin-left:15%;}
+    .form-x .form-group .label{float:left;width:15%;text-align:right;padding:7px 7px 7px 0;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
+    .form-x .form-group .field{float:left;width:85%;}
+    .form-x .form-button{margin-left:15%;}
 }
 @media (min-width:760px){
-.form-inline{display:inline-block;}
-.form-inline .input{width:auto;display:inline-block;}
-.form-inline .form-group{display:inline-table;padding-bottom:0;vertical-align:middle;}
-.form-inline .form-group .input-group{display:inline-table;width:auto;vertical-align:middle;}
-.form-inline .form-group .input-group .input{width:auto;}
-.form-inline .form-group .label{display:inline-block;}
-.form-inline .form-group .field{display:inline-block;}
-.form-inline .form-button{display:inline-block;vertical-align:middle;}
-.form-inline .form-button .button{width:auto;}
-.form-auto .input{width:auto;display:inline-block;}
-.form-auto .input-group{display:inline-table;width:auto;display:inline-block;}
-.form-auto .input-group .input{width:auto;display:inline-block;}
-.input-inline{padding-left:1px;}
-.input-inline input{position:relative;float:left;border-radius:0;margin-left:-1px;width:auto;}
-.form-small .input-inline input,.form-big .input-inline input{border-radius:0;}
-.input-inline input:first-child{left:1px;border-radius:4px 0 0 4px;}
-.input-inline input:last-child{border-radius:0 4px 4px 0;}
+    .form-inline{display:inline-block;}
+    .form-inline .input{width:auto;display:inline-block;}
+    .form-inline .form-group{display:inline-table;padding-bottom:0;vertical-align:middle;}
+    .form-inline .form-group .input-group{display:inline-table;width:auto;vertical-align:middle;}
+    .form-inline .form-group .input-group .input{width:auto;}
+    .form-inline .form-group .label{display:inline-block;}
+    .form-inline .form-group .field{display:inline-block;}
+    .form-inline .form-button{display:inline-block;vertical-align:middle;}
+    .form-inline .form-button .button{width:auto;}
+    .form-auto .input{width:auto;display:inline-block;}
+    .form-auto .input-group{display:inline-table;width:auto;display:inline-block;}
+    .form-auto .input-group .input{width:auto;display:inline-block;}
+    .input-inline{padding-left:1px;}
+    .input-inline input{position:relative;float:left;border-radius:0;margin-left:-1px;width:auto;}
+    .form-small .input-inline input,.form-big .input-inline input{border-radius:0;}
+    .input-inline input:first-child{left:1px;border-radius:4px 0 0 4px;}
+    .input-inline input:last-child{border-radius:0 4px 4px 0;}
 }
 .input-block{padding-top:8px;}
 .input-block:first-child{padding-top:1px;}
@@ -88,45 +89,45 @@ textarea.input{height:auto;}
 
 /* AmMRLi add 自定义顶部 Banner 之 head & iocn 2016-2-29 04:24:11 */
 .myhead {
-  font-size: 0;
-  text-align: center;
-  background: #b6b6b6 url(http://cdn.shici.ammrli.com/vip/img/myhead/myhead_02.jpg);
-  -webkit-background-size: cover;
-  background-size: cover;
+    font-size: 0;
+    text-align: center;
+    background: #b6b6b6 url(http://cdn.shici.ammrli.com/vip/img/myhead/myhead_02.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 .myhead h1:before {
-  content: " ";
-  width: 195px;
-  height: 160px;
-  vertical-align: middle;
-  display: inline-block;
-  background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat 0px 0px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
+    content: " ";
+    width: 195px;
+    height: 160px;
+    vertical-align: middle;
+    display: inline-block;
+    background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat 0px 0px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
 }
 .myicon {
-  position: relative;
-  left: -2px;
-  width: 29px;
-  height: 29px;
-  vertical-align: middle;
-  display: inline-block;
+    position: relative;
+    left: -2px;
+    width: 29px;
+    height: 29px;
+    vertical-align: middle;
+    display: inline-block;
 }
 .myicon.key {
-  background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat 0px -161px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
+    background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat 0px -161px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
 }
 .myicon.lock {
-  background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat -30px -161px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
+    background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat -30px -161px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
 }
 .myicon.msg {
-  background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat -60px -161px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
+    background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat -60px -161px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
 }
 .myicon.snow {
-  background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat -90px -161px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
+    background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat -90px -161px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
 }
 .myicon.user {
-  background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat -120px -161px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
+    background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat -120px -161px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
 }
 .myicon.wechat {
-  background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat -150px -161px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
+    background: transparent url("http://cdn.shici.ammrli.com/vip/img/myhead/myhead_cover.png") no-repeat -150px -161px;-webkit-background-size: 196px 191px;background-size: 196px 191px;
 }
 
 /*!
@@ -141,27 +142,27 @@ textarea.input{height:auto;}
 
 /*  AmMRLi add 自定义 图文列表 （新投、旧投、打赏、付费） 2016-2-29 04:24:11 */
 .cover {
-  display: block;
-  width: 35px;
-  height: 35px;
-  margin-right: 10px;
-  border-radius:50%;
+    display: block;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    border-radius:50%;
 }
 .title {
-  font-weight: 400;
-  /* margin-right: 15px; */ /* 控制图文列表，但影响韵部 Showdata 显示，所以注释掉 */
-  font-size: 14px;
+    font-weight: 400;
+    /* margin-right: 15px; */ /* 控制图文列表，但影响韵部 Showdata 显示，所以注释掉 */
+    font-size: 14px;
 }
 .summary {
-  font-size: 14px;
-  margin-right: 15px;
-  color: #888888;
-  display: -webkit-box;
-  max-width: 100%;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    font-size: 14px;
+    margin-right: 15px;
+    color: #888888;
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /*  AmMRLi add 自定义 调整 cells 文字大小 原始17px 调整14px 2016-2-29 04:24:11 */
@@ -234,93 +235,93 @@ textarea.input{height:auto;}
 /* '' */
 [class^="weui_icon_"]:before,
 [class*=" weui_icon_"]:before {
-  margin: 0;
+    margin: 0;
 }
 .weui_icon_success:before {
-  font-size: 18px;
-  color: #09BB07;
+    font-size: 18px;
+    color: #09BB07;
 }
 .weui_icon_waiting:before {
-  font-size: 18px;
-  color: #10AEFF;
+    font-size: 18px;
+    color: #10AEFF;
 }
 .weui_icon_warn:before {
-  font-size: 18px;
-  color: #F43530;
+    font-size: 18px;
+    color: #F43530;
 }
 .weui_icon_info:before {
-  font-size: 18px;
-  color: #10AEFF;
+    font-size: 18px;
+    color: #10AEFF;
 }
 .weui_icon_success_circle:before {
-  font-size: 18px;
-  color: #09BB07;
+    font-size: 18px;
+    color: #09BB07;
 }
 .weui_icon_success_no_circle:before {
-  font-size: 18px;
-  color: #09BB07;
+    font-size: 18px;
+    color: #09BB07;
 }
 .weui_icon_waiting_circle:before {
-  font-size: 18px;
-  color: #10AEFF;
+    font-size: 18px;
+    color: #10AEFF;
 }
 .weui_icon_circle:before {
-  font-size: 18px;
-  color: #C9C9C9;
+    font-size: 18px;
+    color: #C9C9C9;
 }
 .weui_icon_download:before {
-  font-size: 18px;
-  color: #09BB07;
+    font-size: 18px;
+    color: #09BB07;
 }
 .weui_icon_info_circle:before {
-  font-size: 18px;
-  color: #09BB07;
+    font-size: 18px;
+    color: #09BB07;
 }
 .weui_icon_safe_success:before {
-  color: #09BB07;
+    color: #09BB07;
 }
 .weui_icon_safe_warn:before {
-  color: #FFBE00;
+    color: #FFBE00;
 }
 .weui_icon_cancel:before {
-  color: #F43530;
-  font-size: 22px;
+    color: #F43530;
+    font-size: 22px;
 }
 .weui_icon_search:before {
-  color: #B2B2B2;
-  font-size: 14px;
+    color: #B2B2B2;
+    font-size: 14px;
 }
 .weui_icon_clear:before {
-  color: #B2B2B2;
-  font-size: 14px;
+    color: #B2B2B2;
+    font-size: 14px;
 }
 .weui_icon_msg:before {
-  font-size: 104px;
+    font-size: 104px;
 }
 .weui_icon_warn.weui_icon_msg:before {
-  color: #F76260;
+    color: #F76260;
 }
 .weui_icon_safe:before {
-  font-size: 104px;
+    font-size: 104px;
 }
 
 /*  AmMRLi add 自定义 icon 会员黄色图标 实心黄色钩 2016-2-29 04:24:11 */
 .weui_icon_vip:before {
-  content: "\EA06";
-  font-size: 18px;
-  color: #FFBE00;
+    content: "\EA06";
+    font-size: 18px;
+    color: #FFBE00;
 }
 /*  AmMRLi add 自定义 icon 历史记录绿色图标 空心绿色时间 2016-2-29 04:24:11 */
 .weui_icon_history:before {
-  content: "\EA0A";
-  font-size: 18px;
-  color: #09BB07;
+    content: "\EA0A";
+    font-size: 18px;
+    color: #09BB07;
 }
 /*  AmMRLi add 自定义 icon 提醒灰色图标 2016-2-29 04:24:11 */
 .weui_icon_notice:before {
-  content: "\EA07";
-  font-size: 18px;
-  color: #10AEFF;
+    content: "\EA07";
+    font-size: 18px;
+    color: #10AEFF;
 }
 /* AmMRLi add 自定义 首页九宫格角标 2017-4-16 19:47:23 */
 .vip_badge_gray {
