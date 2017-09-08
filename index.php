@@ -27,7 +27,7 @@
         </div>
         <div class="bd">
             <div class="weui_cells weui_cells_access global_navs">
-                <a class="weui_cell" href="javascript:alert(5);">
+                <a class="weui_cell" href="javascript:alert($('#todayused').text());">
                     <div class="weui_cell_hd weui_icon_success_circle" style="width:20px;margin-right:5px;display:block"></div>
                     <div class="weui_cell_bd weui_cell_primary"><p>今日已开</p></div>
                     <div id='todayused' class="weui_cell_ft" style="color: #991100;">0 </div>
@@ -50,9 +50,8 @@
             <div class="weui_cells" id="cells_table">
             </div>
 
-            <div class="">
-                <a href="javascript:;" class="weui_btn weui_btn_primary weui_btn_margin">再开一个</a>
-            </div>
+            <a href="javascript:open_click();" class="weui_btn weui_btn_primary weui_btn_margin">再开一个</a>
+
             <br>
             <div class="weui-footer">
                 <p class="weui-footer__text" >Copyright &copy; 2016-2017 huakai.org</p>
