@@ -3,7 +3,6 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>浦发红包机器人</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <link rel="stylesheet" href="./css/weui.css?vver"/>
     <link rel="stylesheet" href="./css/weui.index.css?f3cvvc"/>
@@ -13,21 +12,18 @@
 <body ontouchstart>
 <div class="container">
     <div class="page">
-        <img id="shareIcon" alt="" src="./image/sharelogo.jpg" hidden>
-
+        <div class="weui_toptips weui_warn">0点到6点为系统维护时间</div>
         <div class="hd">
-            <p class="page_desc"><a href="javascript:alert('hd');"><img style="height:60px; width:60px;border-radius:100px;" src="./image/robot-logo.jpg"></a></p>
+            <p class="page_desc"><a href="javascript:alert('hd');"><img style="height:60px; width:60px;border-radius:90px;" src="./image/robot-logo.jpg"></a></p>
             <h1 class="page_title"  style="font-size: 24px;">YoungLIU</h1>
             <p class="page_desc">共累计分享 <b>5 </b>次</p>
         </div>
-
         <div class="bd">
-            <div class="weui_cells_title">操作</div>
             <div class="weui_cells weui_cells_access global_navs">
                 <a class="weui_cell" href="javascript:alert(5);">
                     <div class="weui_cell_hd weui_icon_success_circle" style="width:20px;margin-right:5px;display:block"></div>
                     <div class="weui_cell_bd weui_cell_primary"><p>今日已开</p></div>
-                    <div class="weui_cell_ft">5 </div>
+                    <div class="weui_cell_ft" style="color: #991100;">5 </div>
                 </a>
 
                 <a class="weui_cell">
@@ -43,12 +39,26 @@
                 <!--</a>-->
             </div>
 
-            <div class="weui_cells_title">最近5条红包记录</div>
+            <div class="weui_cells_title">今日新开5条记录</div>
             <div class="weui_cells">
                 <div class="weui_cell">
                     <div class="weui_cell_bd weui_cell_primary">
-                        <p>第203281号分享红包</p>
-                        <p>2017-09-07 19:43:10</p>
+                        <p>203281号红包</p>
+                    </div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <p>19:43:10</p>
+                    </div>
+                    <div class="weui_cell_ft">
+                        <a href="javascript:alert(0);" class="weui_btn weui_btn_mini weui_btn_primary">查看</a>
+                        <a href="javascript:alert(1);" class="weui_btn weui_btn_mini weui_btn_warn">投诉</a>
+                    </div>
+                </div>
+                <div class="weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <p>203282号红包</p>
+                    </div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <p>19:42:10</p>
                     </div>
                     <div class="weui_cell_ft">
                         <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_primary">查看</a>
@@ -57,8 +67,10 @@
                 </div>
                 <div class="weui_cell">
                     <div class="weui_cell_bd weui_cell_primary">
-                        <p>第203282号分享红包</p>
-                        <p>2017-09-07 19:42:10</p>
+                        <p>203283号红包</p>
+                    </div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <p>19:41:10</p>
                     </div>
                     <div class="weui_cell_ft">
                         <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_primary">查看</a>
@@ -67,8 +79,10 @@
                 </div>
                 <div class="weui_cell">
                     <div class="weui_cell_bd weui_cell_primary">
-                        <p>第203283号分享红包</p>
-                        <p>2017-09-07 19:41:10</p>
+                        <p>203284号红包</p>
+                    </div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <p>19:39:10</p>
                     </div>
                     <div class="weui_cell_ft">
                         <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_primary">查看</a>
@@ -77,18 +91,10 @@
                 </div>
                 <div class="weui_cell">
                     <div class="weui_cell_bd weui_cell_primary">
-                        <p>第203284号分享红包</p>
-                        <p>2017-09-07 19:39:10</p>
+                        <p>203285号红包</p>
                     </div>
-                    <div class="weui_cell_ft">
-                        <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_primary">查看</a>
-                        <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_warn">投诉</a>
-                    </div>
-                </div>
-                <div class="weui_cell">
                     <div class="weui_cell_bd weui_cell_primary">
-                        <p>第203285号分享红包</p>
-                        <p>2017-09-07 19:38:10</p>
+                        <p>19:38:10</p>
                     </div>
                     <div class="weui_cell_ft">
                         <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_primary">查看</a>
@@ -97,20 +103,53 @@
                 </div>
             </div>
 
-            <a href="javascript:;" class="weui_btn weui_btn_primary weui_btn_margin">再开一个</a>
-
+            <div class="">
+                <a href="javascript:;" class="weui_btn weui_btn_primary weui_btn_margin">再开一个</a>
+            </div>
+            <br>
+            <div class="weui-footer">
+                <p class="weui-footer__text" >Copyright &copy; 2016-2017 huakai.org</p>
+            </div>
+            <br>
         </div>
-        <br>
-        <div class="weui-footer">
-            <p class="weui-footer__text" >Copyright &copy; 2016-2017 huakai.org</p>
-        </div>
-        <br>
     </div>
 </div>
+<script src="./js/jquery-1.8.3.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    function setJSAPI(){
+        var option = {
+            title: '更好用的浦发红包机器人', // 分享标题
+            desc: '好用的浦发红包机器人，无需关注，无需收藏，即开即分享！\n服务2.0新升级，使用更畅快！', // 分享描述
+            link: 'http://red.huakai.org/coupons/index.html', // 分享链接
+            imgUrl: 'http://red.huakai.org/coupons/image/sharelogo.jpg' // 分享图标
+        };
+
+        $.getJSON('./sign.php?url=' + encodeURIComponent(location.href.split('#')[0]), function (res) {
+            wx.config({
+                beta: true,
+                debug: false,
+                appId: res.appId,
+                timestamp: res.timestamp,
+                nonceStr: res.nonceStr,
+                signature: res.signature,
+                jsApiList: [
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage',
+                ]
+            });
+            wx.ready(function () {
+                wx.onMenuShareTimeline(option);
+                wx.onMenuShareQQ(option);
+                wx.onMenuShareAppMessage(option);
+            });
+        });
+    }
+</script>
+
 <script type="text/javascript">
     window.onload=function() {
-        document.body.scrollByLines(5);
-        alert(document.body.scrollTop);
+        setJSAPI();
     }
 </script>
 </body>
