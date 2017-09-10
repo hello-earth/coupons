@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <link rel="stylesheet" href="./css/weui.css?vver"/>
-    <link rel="stylesheet" href="./css/weui.index.css?f3cvvc"/>
+    <link rel="stylesheet" href="./css/weui.css"/>
+    <link rel="stylesheet" href="./css/weui.index.css"/>
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"/>
     <link rel="bookmark icon" href="./favicon.ico"/>
 
@@ -27,6 +27,12 @@
         </div>
         <div class="bd">
             <div class="weui_cells weui_cells_access global_navs">
+                <a class="weui_cell" href="javascript:alert(正常);">
+                    <div class="weui_cell_hd weui_icon_success_circle" style="width:20px;margin-right:5px;display:block"></div>
+                    <div class="weui_cell_bd weui_cell_primary"><p>账户状态</p></div>
+                    <div id='accountstatus' class="weui_cell_ft">正常</div>
+                </a>
+
                 <a class="weui_cell" href="javascript:alert($('#todayused').text());">
                     <div class="weui_cell_hd weui_icon_success_circle" style="width:20px;margin-right:5px;display:block"></div>
                     <div class="weui_cell_bd weui_cell_primary"><p>今日已开</p></div>
@@ -39,25 +45,68 @@
                     <div id='stillhave' class="weui_cell_ft_text">0 </div>
                 </a>
 
-                <!--<a class="weui_cell" href="javascript:alert(105);">-->
-                <!--<div class="weui_cell_hd weui_icon_success_circle" style="width:20px;margin-right:5px;display:block"></div>-->
-                <!--<div class="weui_cell_bd weui_cell_primary"><p>账户设置</p></div>-->
-                <!--<div class="weui_cell_ft"></div>-->
-                <!--</a>-->
             </div>
-
-            <div class="weui_cells_title">今日新开5条记录</div>
+            <div id='todaytstatus' class="weui_cells_title">今日暂无开包记录</div>
             <div class="weui_cells" id="cells_table">
             </div>
 
             <a href="javascript:open_click();" class="weui_btn weui_btn_primary weui_btn_margin">再开一个</a>
 
-            <br>
             <div class="weui-footer">
                 <p class="weui-footer__text" >Copyright &copy; 2016-2017 huakai.org</p>
             </div>
             <br>
         </div>
+    </div>
+</div>
+
+<div id="dialogs">
+    <div class="js_dialog" id="js_dialog1" style="display: none;">
+        <div class="weui_mask"></div>
+        <div class="weui_dialog">
+            <div class="weui_dialog_bd"><br>今天你已打开15个分享红包了！<br>请明天再来。</div>
+            <div class="weui_dialog_ft">
+                <a href="javascript:;" class="weui_dialog_confirm">知道了</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="js_dialog" id="js_dialog2" style="display: none;">
+        <div class="weui_mask"></div>
+        <div class="weui_dialog">
+            <div class="weui_dialog_bd"><br>你目前没有可用红包数了！<br>请给机器人分享红包后再来。</div>
+            <div class="weui_dialog_ft">
+                <a href="javascript:;" class="weui_dialog_confirm">知道了</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="js_dialog" id="js_dialog3" style="display: none;">
+        <div class="weui_mask"></div>
+        <div class="weui_dialog">
+            <div class="weui_dialog_bd"><br>你的账号因违规已被冻结，请到“账户状态”中查看原因及解封方法。</div>
+            <div class="weui_dialog_ft">
+                <a href="javascript:;" class="weui_dialog_confirm">知道了</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="js_dialog" id="js_dialog4" style="display: none;">
+        <div class="weui_mask"></div>
+        <div class="weui_dialog">
+            <div id="mymsg" class="weui_dialog_bd"></div>
+            <div class="weui_dialog_ft">
+                <a href="javascript:;" class="weui_dialog_confirm">知道了</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="loadingToast" style="display:none;">
+    <div class="weui_mask_transparent"></div>
+    <div class="weui_toast">
+        <i class="weui_loading weui_icon_toast"></i>
+        <p class="weui_toast_content">数据加载中</p>
     </div>
 </div>
 

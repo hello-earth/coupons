@@ -1,16 +1,19 @@
-function initUserInfo(uid) {
+function initUserInfo(uid,url) {
     $.getJSON('./ctrl/getUserInfo.php?uid=' + uid, function (res) {
         $('#nickname').html(res.name);
         $('#tottalused').html(res.tottaltime);
         $('#todayused').html(res.todayused);
         $('#stillhave').html(res.stillhave);
+        if(res.stillhave<0){
+            $('#accountstatus').html("冻结");
+        }
         if(res.name.length>=2){
-            refreshLog(uid);
+            refreshLog(uid,url);
         }
     });
 };
 
-function refreshLog(uid) {
+function refreshLog(uid,url) {
     $.getJSON('./ctrl/getUsedLog.php?uid=' + uid, function (res) {
         var hts = "";
         $('#cells_table').html(hts);
@@ -19,8 +22,15 @@ function refreshLog(uid) {
             hts += '<div class="weui_cell"><div class="weui_cell_bd weui_cell_primary"><p>'+log.content+'</p></div><div class="weui_cell_bd weui_cell_primary">'+
                 '<p>'+log.timestamp+'</p></div><div class="weui_cell_ft"><a href="javascript:alert('+log.pid+');" class="weui_btn weui_btn_mini weui_btn_warn">投诉</a>&nbsp;&nbsp;&nbsp;</div></div>';
         }
+        if(res.length>0){
+            $('#todaytstatus').html("今日新开"+res.length+"条记录");
+        }
         $('#cells_table').html(hts);
+        if(url.length>100){
+            window.location = url;
+        }
     });
+    $('#loadingToast').fadeOut(200);
 };
 
 function setJSAPI(){
@@ -67,14 +77,43 @@ function setJSAPI(){
 }
 
 function open_click() {
-    window.location = "https://weixin.spdbccc.com.cn/wxrp-page-redpacketsharepage/share?packetId=0KZT1ZNWKPC6BIV0448125822-1504529265000c4c95038&noCheck=1&hash=109&dataDt=20170904";
+    var stillhave =  $.trim(($("#stillhave").text()));
+    var todayused = $.trim(($("#todayused").text()));
+    var js_dialog1 = $('#js_dialog1');
+    var js_dialog2 = $('#js_dialog2');
+    var js_dialog3 = $('#js_dialog3');
+    var js_dialog4 = $('#js_dialog4');
+
+    var uid =  $.trim(($("#uid").text()));
+    if(todayused>=15){
+        js_dialog1.fadeIn(200);
+        return;
+    }
+    if(stillhave==0){
+        js_dialog2.fadeIn(200);
+        return;
+    }
+    if(stillhave<0){
+        js_dialog3.fadeIn(200);
+        return;
+    }
+
+    $('#loadingToast').fadeIn(200);
+    $.getJSON('./ctrl/getOneMore.php?uid=' + uid, function (res) {
+        if(res.r==1){
+            $('#mymsg').html("<br>"+res.msg);
+            js_dialog4.fadeIn(200);
+        }else{
+            initUserInfo(uid,res.url);
+        }
+    });
 }
 
 
 window.onload=function() {
+    $('#loadingToast').fadeIn(200);
     setJSAPI();
-    // var uid =  $.trim(($("#uid").text()));
-    // if(uid.length==10){
-    //     initUserInfo(uid);
-    // }
+    $('#dialogs').on('click', '.weui_dialog_confirm', function(){
+        $(this).parents('.js_dialog').fadeOut(200);
+    });
 }
