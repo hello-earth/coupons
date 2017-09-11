@@ -7,9 +7,11 @@
  */
 
 $url = $_GET["url"];
-require_once "jssdk.php";
-$jssdk = new JSSDK("wx0f8ccc1d47e0d1a6", "8a7916a7742e4b995bbacad104e8e60a");
-$signPackage = $jssdk->GetSignPackage($url);
-die(json_encode($signPackage));
-
+$user_agent = $_SERVER['HTTP_USER_AGENT'];
+if ("" != $url && strpos($user_agent, 'MicroMessenger')>0) {
+    require_once "./jssdk.php";
+    $jssdk = new JSSDK("wx0f8ccc1d47e0d1a6", "8a7916a7742e4b995bbacad104e8e60a");
+    $signPackage = $jssdk->GetSignPackage($url);
+    die(json_encode($signPackage));
+}
 ?>

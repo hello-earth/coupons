@@ -12,7 +12,8 @@ date_default_timezone_set('Asia/Shanghai');
 if(isset($_GET["uid"]) ) {
     $uid = $_GET['uid'];
     $un = $_GET['n'];
-    if(""!=$uid){
+    $user_agent = $_SERVER['HTTP_USER_AGENT'];
+    if ("" != $uid && strpos($user_agent, 'MicroMessenger')>0) {
         if($un=="")
             $un = 5;
         elseif ($un>15)

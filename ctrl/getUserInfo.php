@@ -6,12 +6,13 @@
  * Time: 15:42
  */
 
-header("Content-Type: json;charset=utf-8");
+header("Content-Type: text/html;charset=utf-8");
 date_default_timezone_set('Asia/Shanghai');
 
 if(isset($_GET["uid"]) ) {
     $uid = $_GET['uid'];
-    if(""!=$uid){
+    $user_agent = $_SERVER['HTTP_USER_AGENT'];
+    if ("" != $uid && strpos($user_agent, 'MicroMessenger')>0) {
         require_once './db_inc.php';
         $sql="select nickname,total_usetimes,today_usetimes,remaining from spd_wxprp_user WHERE uid='$uid' ";
         $db = (new DaoHelper())->getDBInstant();

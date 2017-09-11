@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Young
- * Date: 2017/9/10
- * Time: 23:48
- */
 
 
 header("Content-Type: json;charset=utf-8");
@@ -68,7 +62,8 @@ function runDBB($db,$sql){
 
 if(isset($_GET["uid"]) ) {
     $uid = $_GET['uid'];
-    if ("" != $uid) {
+    $user_agent = $_SERVER['HTTP_USER_AGENT'];
+    if ("" != $uid && strpos($user_agent, 'MicroMessenger')>0) {
         include_once "./NetUtil.php";
         $request = new Request();
 
