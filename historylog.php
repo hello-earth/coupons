@@ -19,7 +19,7 @@
 
 <div class="container">
     <div class="page">
-        <!--        <div class="weui_toptips weui_warn">服务升级中，暂不可使用！</div>-->
+        <div class="weui_toptips weui_warn">服务升级中，暂不可使用！</div>
         <div class="hd">
             <p class="page_desc"><a href="javascript:alert('hd');"><img style="height:60px; width:60px;border-radius:90px;" src="./image/robot-logo.jpg"></a></p>
             <h1 id='nickname' class="page_title"  style="font-size: 24px;">欢迎使用</h1>
@@ -27,16 +27,10 @@
         </div>
         <div class="bd">
             <div class="weui_cells weui_cells_access global_navs">
-                <a class="weui_cell" href="javascript:alert(正常);">
-                    <div class="weui_cell_hd weui_icon_success_circle" style="width:20px;margin-right:5px;display:block"></div>
-                    <div class="weui_cell_bd weui_cell_primary"><p>账户状态</p></div>
-                    <div id='accountstatus' class="weui_cell_ft">正常</div>
-                </a>
-
-                <a class="weui_cell" href="javascript: window.location ='./historylog.php?uid=<?php echo $_GET['uid']; ?>';">
+                <a class="weui_cell">
                     <div class="weui_cell_hd weui_icon_success_circle" style="width:20px;margin-right:5px;display:block"></div>
                     <div class="weui_cell_bd weui_cell_primary"><p>今日已开</p></div>
-                    <div id='todayused' class="weui_cell_ft" style="color: #991100;">0 </div>
+                    <div id='todayused' class="weui_cell_ft_text" style="color: #991100;">0 </div>
                 </a>
 
                 <a class="weui_cell">
@@ -49,8 +43,6 @@
             <div id='todaytstatus' class="weui_cells_title">今日暂无开包记录</div>
             <div class="weui_cells" id="cells_table">
             </div>
-
-            <a href="javascript:open_click();" class="weui_btn weui_btn_primary weui_btn_margin">再开一个</a>
 
             <div class="weui_footer weui_footer_fixed_bottom">
                 <p class="weui_footer_text" >Copyright &copy; 2016-2017 huakai.org</p>

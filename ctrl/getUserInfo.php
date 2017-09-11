@@ -6,7 +6,7 @@
  * Time: 15:42
  */
 
-header("Content-Type: text/html;charset=utf-8");
+header("Content-Type: json;charset=utf-8");
 date_default_timezone_set('Asia/Shanghai');
 
 if(isset($_GET["uid"]) ) {

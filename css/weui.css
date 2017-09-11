@@ -482,7 +482,7 @@ input.weui_btn_plain_default {
 .weui_cells_radio .weui_check:checked + .weui_icon_checked:before {
     display: block;
     /*content: '\EA08'; AmMRLi*/
-    content: '\EA06';
+    content: '\EA08';
     color: #09BB07;
     /*font-size: 16px; AmMRLi*/
     font-size: 19px;
