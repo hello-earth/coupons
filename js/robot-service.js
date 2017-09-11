@@ -67,8 +67,8 @@ function setJSAPI(){
     var option = {
         title: '更好用的浦发红包机器人', // 分享标题
         desc: '更好用的浦发红包机器人，无需关注，无需收藏，即开即分享！\n服务2.0新升级，使用更畅快！', // 分享描述
-        link: 'http://red.huakai.org/coupons/index.php', // 分享链接
-        imgUrl: 'http://red.huakai.org/coupons/image/sharelogo.jpg' // 分享图标
+        link: 'http://mgr.huakai.org/coupons/index.php', // 分享链接
+        imgUrl: 'http://mgr.huakai.org/coupons/image/newredpacketshare.png' // 分享图标
     };
 
     $.getJSON('./ctrl/sign.php?url=' + encodeURIComponent(location.href.split('#')[0]), function (res) {
