@@ -70,7 +70,7 @@ function checkOverduceByPID($db,$uid,$pid,$resultstr){
             if (!in_array($wxid, $users)) {
                 $resultstr["msg"] = '你没有获得该红包分享。<br>恶意举报会被拉黑处理！';
             } else {
-                $resultstr["msg"] = '该分享没有过期，请确认后再试。恶意举报会被拉黑处理！';
+                recUserRemain($db,$wxid,0,$pid,$resultstr);
 //                $datestr = isNotEmpty($url);
 //                if ($datestr != "" && floor(time() - strtotime($row[8])) > 86400) {
 //                    recUserRemain($db,$wxid,0,$pid,$resultstr);
