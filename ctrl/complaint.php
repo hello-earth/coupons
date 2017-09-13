@@ -11,15 +11,19 @@ date_default_timezone_set('Asia/Shanghai');
 include_once "./NetUtil.php";
 
 function isNotEmpty($url=""){
-    $request = new Request();
-    $result = $request->get($url);
-    $lable = "images/but_open.png";
-    $pos = strpos($result, $lable);
-    if(($pos !== false)){
-        $pos = strpos($result, "\"&dataDt=\"+'");
-        return substr($result,$pos+strlen("\"&dataDt=\"+'"),8);
+    if($url=="") $url = $this->prp_url;
+    try {
+        $request = new Request();
+        $result = $request->get($url);
+        $pos = strpos($result, "images/but_open.png");
+        if (($pos !== false)) {
+            $pos = strpos($result, "\"&dataDt=\"+'");
+            return substr($result, $pos + strlen("\"&dataDt=\"+'"), 8);
+        }
+        return "";
+    }catch (Exception $ex){
+        return "-1";
     }
-    return "";
 }
 
 function checkEmpty($db,$uid,$pid,$resultstr){
@@ -39,10 +43,10 @@ function checkEmpty($db,$uid,$pid,$resultstr){
                 $resultstr["msg"] = '你没有获得该红包分享。<br>恶意举报会被拉黑处理！';
             }else{
                 $datestr = isNotEmpty($url);
-                if ($datestr!="") {
-                    $resultstr["msg"] ='该分享不是空包，请确认后再试。<br>恶意举报会被拉黑处理！';
+                if ($datestr!="-1" && $datestr!="") {
+                    $resultstr["msg"] ='该分享不是空包，请确认后再试。恶意举报会被拉黑处理！';
                 } else{
-                    recUserRemain($db,$wxid,$usetimes,$pid,$resultstr);
+                    recUserRemain($db,$wxid,$usetimes,$pid,$resultstr,$datestr);
                 }
             }
         }else{
@@ -60,6 +64,7 @@ function checkOverduceByPID($db,$uid,$pid,$resultstr){
     if(mysqli_num_rows($result)>0) {
         $row = $result->fetch_row();
         $url = $row[0];
+        $createtime = $row[8];
         $users = Array($row[3], $row[4], $row[5], $row[6], $row[7]);
         $sql = "select provider from spd_wxprp_user WHERE uid='$uid'";
         $result = $db->query($sql);
@@ -70,9 +75,9 @@ function checkOverduceByPID($db,$uid,$pid,$resultstr){
                 $resultstr["msg"] = '你没有获得该红包分享。<br>恶意举报会被拉黑处理！';
             } else {
                 $datestr = isNotEmpty($url);
-                if ($datestr != "" && floor(time() - strtotime($row[8])) > 86400) {
-                    recUserRemain($db,$wxid,0,$pid,$resultstr);
-                } else {
+                if ($datestr=="-1" || ($datestr!="" && floor(time()-strtotime($createtime))>86400)) {
+                    recUserRemain($db,$wxid,0,$pid,$resultstr,$datestr);
+                } else{
                     $resultstr["msg"] = '该分享没有过期，请确认后再试。恶意举报会被拉黑处理！';
                 }
             }
@@ -85,7 +90,7 @@ function checkOverduceByPID($db,$uid,$pid,$resultstr){
     die(json_encode($resultstr));
 }
 
-function recUserRemain($db,$wxid,$usetimes,$pid,$resultstr){
+function recUserRemain($db,$wxid,$usetimes,$pid,$resultstr,$datestr){
     try{
         $sql = "select remaining,today_usetimes,nickname from spd_wxprp_user WHERE provider='$wxid' limit 1";
         $result=$db->query($sql);
@@ -99,12 +104,14 @@ function recUserRemain($db,$wxid,$usetimes,$pid,$resultstr){
                 }
                 $sql = "update spd_wxprp_user set remaining=($remain + 1),today_usetimes=($today_usetimes - 1) WHERE provider='$wxid'";
                 if ($db->query($sql)) {
-                    if ($usetimes == 0) {
-                        $sql = "update  spd_wxprp set usetimes=7 WHERE id=$pid";
-                        $db->query($sql);
-                    } elseif ($usetimes < 5) {
-                        $sql = "update  spd_wxprp set usetimes=6 WHERE id=$pid";
-                        $db->query($sql);
+                    if($datestr!="-1") {
+                        if ($usetimes == 0) {
+                            $sql = "update  spd_wxprp set usetimes=7 WHERE id=$pid";
+                            $db->query($sql);
+                        } elseif ($usetimes < 5) {
+                            $sql = "update  spd_wxprp set usetimes=7 WHERE id=$pid";
+                            $db->query($sql);
+                        }
                     }
                     if($remain>=0){
                         $sql = "delete from wxprp_log WHERE identification=$pid";

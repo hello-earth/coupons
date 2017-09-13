@@ -16,8 +16,8 @@ class Request{
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_HEADER, true);
-            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 15);
+            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 10);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);  //SSL 报错时使用
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);  //SSL 报错时使用
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);

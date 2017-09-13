@@ -5,28 +5,6 @@ header("Content-Type: json;charset=utf-8");
 date_default_timezone_set('Asia/Shanghai');
 $resultstr=array("r"=>0,"url"=>"","msg"=>"");
 
-function isNotEmpty($request,$url=""){
-    if($url=="") $url = prp_url;
-    $result = $request->get($url);
-    $lable = "images/but_open.png";
-    $pos = strpos($result, $lable);
-    if(($pos !== false)){
-        $pos = strpos($result, "\"&dataDt=\"+'");
-        return substr($result,$pos+strlen("\"&dataDt=\"+'"),8);
-    }
-    return "";
-}
-
-function checkSPDAvailable($request){
-    try{
-        $url="https://weixin.spdbccc.com.cn/wxrp-page-redpacketsharepage/share?packetId=1D3U2X7F7C6FJQDJ450035770-150460727900086183b82&noCheck=1&hash=4&dataDt=20170905";
-        $result = $request->get($url);
-        return strpos($result,"images/share_out.jpg") != false;
-    }catch (Exception $ex){
-        return false;
-    }
-}
-
 function convertUrlQuery($query) {
     $queryParts = explode('&', $query);
     $params = array();
@@ -35,18 +13,6 @@ function convertUrlQuery($query) {
         $params[$item[0]] = $item[1];
     }
     return $params;
-}
-
-function runDB($db,$sql,$remaining){
-    if(!$db->query($sql)){
-        $db->rollback();
-        $db->autocommit(true);
-        $sqll = "update spd_wxprp_user set remaining=".($remaining+5)." WHERE provider='".$wxid."'";
-        $db->query($sqll);
-        $resultstr["status"] = 1;
-        $resultstr["msg"] = "数据库操作发生错误，异常退出，请稍后再试。SQL=".$sql;
-        die(json_encode($resultstr));
-    }
 }
 
 function runDBB($db,$sql){
