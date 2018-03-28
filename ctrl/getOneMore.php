@@ -29,7 +29,8 @@ function runDBB($db,$sql){
 if(isset($_GET["uid"]) ) {
     $uid = $_GET['uid'];
     $user_agent = $_SERVER['HTTP_USER_AGENT'];
-    if ("" != $uid && strpos($user_agent, 'MicroMessenger')>0) {
+//    && strpos($user_agent, 'MicroMessenger')>0
+    if ("" != $uid ) {
         include_once "./NetUtil.php";
         $request = new Request();
 
@@ -52,21 +53,20 @@ if(isset($_GET["uid"]) ) {
                     $resultstr["msg"] = "账号涉及骗包已被加黑处理(同个红包既分享给机器人又分享给别人)，此次分享不记录。";
                 } elseif ($remaining == 0) {
                     $resultstr["r"] = 1;
-                    $resultstr["msg"] = "你所有应返还的红包都已领取。\n如有未返回链接，请回复【历史红包】取回。";
+                    $resultstr["msg"] = "你所有应返还的红包都已领取。";
                 } elseif ($today_usetimes >= 15) { //超过15个了
                     $resultstr["r"] = 1;
                     $resultstr["msg"] = "你今天通过分享得到的红包已超过上限【15个】，今天将不能再开红包，请明天再来！";
                 } else {
                     $now = date('Y-m-d H:i:s',time());
                     $spdurl="";
-                    $sql = "select id, url,usetimes,u1,u2,u3,u4,u5,provider from spd_wxprp WHERE usetimes<5 AND provider NOT IN ('" . $wx . "','" . $row[2] . "','" . $row[3] . "','" . $row[4] . "','" . $row[5] .
-                        "','" . $row[6] . "','" . $row[7] . "','" . $row[8] . "','" . $row[9] . "','" . $row[10] . "','" . $row[11] . "','" . $row[12] . "','" . $row[13] . "','" . $row[14] . "','" . $row[15] . "','" . $row[16] . "')  AND u1<>'" . $wx .
-                        "' AND u2<>'" . $wx . "' AND u3<>'" . $wx . "' AND u4<>'" . $wx . "' AND u5<>'" . $wx . "' AND  (NOW()- `createtime` <86400) group by provider ORDER BY id limit 1 FOR UPDATE";
+                    $sql = "select spd_wxprp.id, spd_wxprp.url,spd_wxprp_log.usetime,spd_wxprp_log.user,spd_wxprp_log.provider from spd_wxprp,spd_wxprp_log WHERE spd_wxprp.id=spd_wxprp_log.pid AND spd_wxprp_log.usetime<spd_wxprp_log.available AND !FIND_IN_SET('".$wx."',spd_wxprp_log.user)  AND spd_wxprp_log.provider NOT IN ('".$wx."','".$row[2]."','".$row[3]."','".$row[4]."','".$row[5].
+                        "','".$row[6]."','".$row[7]."','".$row[8]."','".$row[9]."','".$row[10]."','".$row[11]."','".$row[12]."','".$row[13]."','".$row[14]."','".$row[15]."','".$row[16]."')  AND (NOW()- spd_wxprp_log.createtime <86400) group by spd_wxprp_log.provider ORDER BY spd_wxprp_log.id limit 1 FOR UPDATE";
                     $result = $db->query($sql);
                     if (mysqli_num_rows($result) > 0) {
                         $row = mysqli_fetch_row($result);
                         $url = $row[1];
-                        $sql = "update  spd_wxprp set usetimes=" . ($row[2] + 1) . ", usetime='" . $now . "',u" . ($row[2] + 1) . "='" . $wx . "' WHERE url='" . $url . "' AND id=" . $row[0];
+                        $sql = "update  spd_wxprp_log set usetime=" . ($row[2] + 1) . ",user='" . $row[3]. $wx . "," . "' WHERE pid=" . $row[0];
                         runDBB($db,$sql);
                         $sql = "insert into wxprp_log(id,spdurl,user,identification,createtime) values(NULL,'" . $url . "','" . $wx . "'," . $row[0] . ",'".$now."')";
                         runDBB($db,$sql);
