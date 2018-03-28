@@ -29,8 +29,7 @@ function runDBB($db,$sql){
 if(isset($_GET["uid"]) ) {
     $uid = $_GET['uid'];
     $user_agent = $_SERVER['HTTP_USER_AGENT'];
-//    && strpos($user_agent, 'MicroMessenger')>0
-    if ("" != $uid ) {
+    if ("" != $uid && strpos($user_agent, 'MicroMessenger')>0) {
         include_once "./NetUtil.php";
         $request = new Request();
 
