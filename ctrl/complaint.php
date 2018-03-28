@@ -32,8 +32,8 @@ function checkEmpty($db,$uid,$pid,$resultstr){
     if(mysqli_num_rows($result)>0) {
         $row = $result->fetch_row();
         $wxid = $row[0];
-        $sql = "select spd_wxprp.url,spd_wxprp_log.usetime,spd_wxprp_log.provider,spd_wxprp_log.createtime from spd_wxprp_log,spd_wxprp WHERE spd_wxprp_log.pid=$this->pid AND FIND_IN_SET('".$this->wxid."',spd_wxprp_log.user) limit 1";
-        $result=$this->db->query($sql);
+        $sql = "select spd_wxprp.url,spd_wxprp_log.usetime,spd_wxprp_log.provider,spd_wxprp_log.createtime from spd_wxprp_log,spd_wxprp WHERE spd_wxprp_log.pid=$pid AND FIND_IN_SET('".$wxid."',spd_wxprp_log.user) limit 1";
+        $result=$db->query($sql);
         if(mysqli_num_rows($result)>0) {
             $row = $result->fetch_row();
             $url = $row[0];
@@ -54,42 +54,13 @@ function checkEmpty($db,$uid,$pid,$resultstr){
 }
 
 function checkOverduceByPID($db,$uid,$pid,$resultstr){
-    $sql = "select url,usetimes,provider,u1,u2,u3,u4,u5,createtime from spd_wxprp WHERE id=$pid";
-    $result=$db->query($sql);
-    if(mysqli_num_rows($result)>0) {
-        $row = $result->fetch_row();
-        $url = $row[0];
-        $createtime = $row[8];
-        $users = Array($row[3], $row[4], $row[5], $row[6], $row[7]);
-        $sql = "select provider from spd_wxprp_user WHERE uid='$uid'";
-        $result = $db->query($sql);
-        if (mysqli_num_rows($result) > 0) {
-            $row = $result->fetch_row();
-            $wxid = $row[0];
-            if (!in_array($wxid, $users)) {
-                $resultstr["msg"] = '你没有获得该红包分享。<br>恶意举报会被拉黑处理！';
-            } else {
-                $datestr = isNotEmpty($url);
-                if ($datestr=="-1" || ($datestr!="" && floor(time()-strtotime($createtime))>86400)) {
-                    recUserRemain($db,$wxid,0,$pid,$resultstr,$datestr);
-                } else{
-                    $resultstr["msg"] = '该分享没有过期，请确认后再试。恶意举报会被拉黑处理！';
-                }
-            }
-        }else{
-            $resultstr["msg"] = '未找到账号信息。';
-        }
-    }else{
-        $resultstr["msg"] ='该红包不存在，请确认后再试。';
-    }
-
     $sql="select provider from spd_wxprp_user WHERE uid='$uid'";
     $result=$db->query($sql);
     if(mysqli_num_rows($result)>0) {
         $row = $result->fetch_row();
         $wxid = $row[0];
-        $sql = "select spd_wxprp.url,spd_wxprp_log.usetime,spd_wxprp_log.provider,spd_wxprp_log.createtime from spd_wxprp_log,spd_wxprp WHERE spd_wxprp_log.pid=$this->pid AND FIND_IN_SET('".$this->wxid."',spd_wxprp_log.user) limit 1";
-        $result=$this->db->query($sql);
+        $sql = "select spd_wxprp.url,spd_wxprp_log.usetime,spd_wxprp_log.provider,spd_wxprp_log.createtime from spd_wxprp_log,spd_wxprp WHERE spd_wxprp_log.pid=$pid AND FIND_IN_SET('".$wxid."',spd_wxprp_log.user) limit 1";
+        $result=$db->query($sql);
         if(mysqli_num_rows($result)>0) {
             recUserRemain($db,$wxid,0,$pid,$resultstr,"20180325");
         }else{
@@ -117,19 +88,19 @@ function recUserRemain($db,$wxid,$usetimes,$pid,$resultstr,$datestr){
                 if ($db->query($sql)) {
                     if($datestr!="-1") {
                         $sql = "select spd_wxprp_log.user from spd_wxprp_log WHERE pid=$pid";
-                        $result=$this->db->query($sql);
+                        $result=$db->query($sql);
                         if(mysqli_num_rows($result)>0) {
                             $row = $result->fetch_row();
                             $user = $row[0];
-                            $user = str_replace($this->wxid.",","",$user);
+                            $user = str_replace($wxid.",","",$user);
                             if ($usetimes == 0) {
                                 //过期
                                 $sql = "update spd_wxprp_log set usetime=97,user='".$user."' WHERE pid=$pid";
-                                $this->db->query($sql);
+                                $db->query($sql);
                             } else {
                                 //空包
                                 $sql = "update spd_wxprp_log set usetime=98 ,user='".$user."' WHERE pid=$pid";
-                                $this->db->query($sql);
+                                $db->query($sql);
                             }
                         }else{
                             $this->resultstr["msg"] = "系统错误，请稍后再试。";
