@@ -69,7 +69,7 @@ if(isset($_GET["uid"]) ) {
                         runDBB($db,$sql);
                         $sql = "insert into wxprp_log(id,spdurl,user,identification,createtime) values(NULL,'" . $url . "','" . $wx . "'," . $row[0] . ",'".$now."')";
                         runDBB($db,$sql);
-                        $uus = "u" . ($today_usetimes + 1) . "='" . $row[8] . "',";
+                        $uus = "u" . ($today_usetimes + 1) . "='" . $row[4] . "',";
 
                         $arr = parse_url($url);
                         $arr_query = convertUrlQuery($arr['query']);
