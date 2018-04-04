@@ -34,7 +34,13 @@ function refreshLog(uid,url) {
         $('#cells_table').html(hts);
         $('#loadingToast').fadeOut(200);
         if(url.length>100){
-            window.location = url;
+            // window.location = url;
+            var gotoLink = document.createElement('a');
+            gotoLink.href = url;
+            gotoLink.rel="noreferrer";
+            document.body.appendChild(gotoLink);
+            gotoLink .click();
+
         }
     });
 }

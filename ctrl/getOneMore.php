@@ -73,7 +73,7 @@ if(isset($_GET["uid"]) ) {
 
                         $arr = parse_url($url);
                         $arr_query = convertUrlQuery($arr['query']);
-                        $spdurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe9d7e3d98ec68189&redirect_uri=https://weixin.spdbccc.com.cn/wxrp-page-redpacketsharepage/judgeOpenId?noCheck%3D1%26param1%3D".$arr_query["packetId"]."%26hash%3D".$arr_query["hash"]."%26dataDt%3D".$arr_query["dataDt"]."&response_type=code&scope=snsapi_base&state=STATE";
+                        $spdurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe9d7e3d98ec68189&redirect_uri=https://weixin.spdbccc.com.cn/wxrp-page-redpacketsharepage/newJudgeOpenId?noCheck%3D1%26param1%3D".$arr_query["packetId"]."%26hash%3D".$arr_query["hash"]."%26dataDt%3D".$arr_query["dataDt"]."&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect";
 
                         $remain = $remaining - 1;
                         $uus .= ("today_usetimes=".($today_usetimes + 1));
