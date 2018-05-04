@@ -10,17 +10,24 @@
 header("Content-Type: json;charset=utf-8");
 date_default_timezone_set('Asia/Shanghai');
 
-$resultstr=array("r"=>0,"msg"=>"数据已保存");
+$resultstr=array("r"=>0,"msg"=>"数据已保存，任务刷新需要一定时间，2分钟左右看下是否正常。");
 $dataMap = [
     "校长" =>"oggN1jqzN2_0rFf-WasP2BPNwmu0",
     "hs" => "oggN1jjt_EK_4W6yVaI1Fz8v6Q4I",
     "步登" => "oggN1jjgH1Q49Pl9ZHUpBG8wnuHc",
-    "果子" => "oggN1jsH-MBFGPeYkXLiZYNv1xFA"
+    "果子" => "oggN1jsH-MBFGPeYkXLiZYNv1xFA",
+    "Young" => "oggN1ju2F9rG7wEnDbksCGOLLF18",
+    "mega" => "oggN1jvC171jB3o6nUxboa1cUHJI",
+    "56" => "oggN1jiAIzgiLk3tkzaA80kx9bZo",
+    "c9" => "oggN1jnkahWBFOMAkx1Bf-shg1s4"
 ];
 
 
-function getLocalSession(){
-    $myfile = @fopen("webdictionary.txt", "r");
+function getLocalSession($method){
+    $path = "webdictionary.txt";
+    if($method==1)
+        $path = "bowling.txt";
+    $myfile = @fopen($path, "r");
     if($myfile) {
         $content = fread($myfile, filesize("webdictionary.txt"));
         fclose($myfile);
@@ -30,8 +37,11 @@ function getLocalSession(){
     }
 }
 
-function saveLocalSession($txt){
-    $myfile = @fopen("webdictionary.txt", "w");
+function saveLocalSession($method, $txt){
+    $path = "webdictionary.txt";
+    if($method==1)
+        $path = "bowling.txt";
+    $myfile = @fopen($path, "w");
     if($myfile) {
         fwrite($myfile, $txt);
         fclose($myfile);
@@ -51,10 +61,12 @@ function findObj($arr,$obj){
     return -1;
 }
 
-if(isset($_POST["pw"]) && isset($_POST["sess"]) ) {
+if(isset($_POST["pw"]) && isset($_POST["method"]) && isset($_POST["sess"]) ) {
     $pw = $_POST['pw'];
     $sess = $_POST['sess'];
-    $content = getLocalSession();
+    $method = $_POST["method"];
+
+    $content = getLocalSession($method);
     $reStr = json_decode($content);
     if(@$reStr->data==null)
         @$reStr->data = [];
@@ -73,7 +85,7 @@ if(isset($_POST["pw"]) && isset($_POST["sess"]) ) {
             die(json_encode($resultstr));
         }
     }
-    if(0==saveLocalSession(json_encode($reStr))){
+    if(0==saveLocalSession($method, json_encode($reStr))){
         $resultstr['msg'] = '数据保存失败';
     }
 }else{
